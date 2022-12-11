@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toobarMap"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:hint="Google Map"
+        android:minHeight="?actionBarSize"
+        android:fitsSystemWindows="true">
+
+        <SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchView"
+            android:searchHintIcon="@drawable/ic_find_map_addre_24"
+            android:queryHint="Look for your address"
+            />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+       <fragment
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="400dp"
+        android:layout_height="500dp"
+        android:layout_gravity="center"
+        tools:context=".Maps" />
+
+
+
+
+
+
+    <Button
+    android:id="@+id/buttonMapReturn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Go Back Home Page"
+    android:textAllCaps="false"
+    android:textColor="#CA125A"
+    android:layout_margin="20dp"
+    android:layout_gravity="center"
+    android:background="@drawable/makebuttonshape"
+    android:textSize="17sp" />
+
+</LinearLayout>
