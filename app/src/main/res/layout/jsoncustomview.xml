@@ -20,7 +20,7 @@
         android:text=""
         android:hint="Food Name from JSON:"
         android:textStyle="bold"
-        android:textColor="@color/teal_200"
+        android:textColor="@color/purple_700"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"/>
@@ -32,7 +32,7 @@
         android:text=""
         android:hint="Food Price from JSON: "
         android:textStyle="bold"
-        android:textColor="@color/teal_200"
+        android:textColor="@color/purple_700"
         android:layout_below="@+id/tvProductionName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"/>

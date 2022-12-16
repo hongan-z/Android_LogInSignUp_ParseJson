@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
+    android:background="#AAC3EF"
     android:orientation="vertical"
     tools:context=".Screen3">
 
@@ -103,18 +104,23 @@
         android:layout_margin="20dp"
         android:textColor="@color/teal_700"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myrecyclerViewfooddetial"
+        android:layout_width="300dp"
+        android:layout_height="133dp" />
 
-    <GridView
-        android:id="@+id/listviewfetchfooddetails"
-        android:layout_width="match_parent"
-        android:layout_height="320dp"
-        android:numColumns="3" />
+
+<!--    <GridView-->
+<!--        android:id="@+id/listviewfetchfooddetails"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="220dp"-->
+<!--        android:numColumns="3" />-->
 
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="100dp"
         android:orientation="horizontal">
 
 

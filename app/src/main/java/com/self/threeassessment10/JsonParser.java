@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.GridView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.json.JSONArray;
@@ -30,9 +31,15 @@ public  class JsonParser extends AsyncTask <String,String,Void>
 
     public List<FoodItems> fooddetails = new ArrayList<>();
 
+    //public ArrayList<FoodItems> detailsfood = new ArrayList<>();
+    //JsonParsingAdapterRecycleView adapterRecyc;
+
     //  json array to contain json file
     JSONArray jsonArray;
     JsonParsingAdapter adapter;
+
+
+
     // string variable to store  final json data converted
     String result="";
 
@@ -176,19 +183,22 @@ public  class JsonParser extends AsyncTask <String,String,Void>
                     // pass into array, which is array<fooddetial>,    finally!!!
                     fooddetails.add(foodItems);
 
-
                 }
             }
 
 
+            RecyclerView recyclerView;
+            recyclerView =(RecyclerView) this.activity.findViewById(R.id.myrecyclerViewfooddetial);
+            adapter= new JsonParsingAdapter(this.context, fooddetails);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this.context));
 
-
-
-            GridView gridView;
-            gridView = (GridView) this.activity.findViewById(R.id.listviewfetchfooddetails);
-
-            adapter = new JsonParsingAdapter(this.context ,fooddetails);
-            gridView.setAdapter(adapter);
+////
+//            GridView gridView;
+//            gridView = (GridView) this.activity.findViewById(R.id.listviewfetchfooddetails);
+//
+//            adapter = new JsonParsingAdapter(this.context ,fooddetails);
+//            gridView.setAdapter(adapter);
 
 
 

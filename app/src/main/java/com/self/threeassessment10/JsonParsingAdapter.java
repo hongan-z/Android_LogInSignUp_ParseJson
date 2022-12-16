@@ -25,13 +25,15 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
 import java.net.URL;
 import java.util.List;
 
-public class JsonParsingAdapter extends ArrayAdapter<FoodItems>
+//public class JsonParsingAdapter extends ArrayAdapter<FoodItems>
+public class JsonParsingAdapter extends RecyclerView.Adapter<JsonParsingAdapter.ViewHolder>
 {
 
     TextView name,price ;
@@ -41,55 +43,125 @@ public class JsonParsingAdapter extends ArrayAdapter<FoodItems>
 
     public JsonParsingAdapter(@NonNull Context context, @NonNull List<FoodItems> foodlist)
     {
-        super(context, R.layout.jsoncustomview, foodlist);
+        //super(context, R.layout.jsoncustomview, foodlist);
         this.context = context;
         this.foodlist = foodlist;
 
     }
 
-    @NonNull
-    @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
-    {
-        LayoutInflater inflater = (LayoutInflater)
-                getContext().getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+//
+//    @NonNull
+//    @Override
+//    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
+//    {
+//        LayoutInflater inflater = (LayoutInflater)
+//                getContext().getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+//
+//        if(convertView == null){
+//            convertView = inflater.inflate(R.layout.jsoncustomview,null);
+//        }
+//
+//
+//        name = (TextView) convertView.findViewById(R.id.tvProductionName);
+//        price =(TextView) convertView.findViewById(R.id.tvProductionPrice);
+//        imgV =(ImageView) convertView.findViewById(R.id.imageView);
+//
+//        // for fill into grid view
+//        FoodItems foodItems = foodlist.get(position);
+//        name.setText(foodItems.getName());
+//        price.setText(foodItems.getPrice());
+//
+//        //Glide library  loading image view
+//        // fill image into grid view by using glide library
+//        try
+//        {
+//            URL glideimageurl = new URL(foodItems.getImageurl());
+//
+//            Glide.with(context).load(glideimageurl).into(imgV);
+//
+//            //
+//
+//            convertView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view)
+//                {
+//
+//                }
+//            });
+//
+//
+//        }catch (Exception e){e.printStackTrace();}
+//
+//
+//        return convertView;
+//    }
 
-        if(convertView == null){
-            convertView = inflater.inflate(R.layout.jsoncustomview,null);
+
+    //--------------------------------------------------- recycler View -------------------------------
+
+
+
+
+//    @NonNull
+//    @Override
+//    public class JsonParsingAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//        return null;
+//    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder
+    {
+        TextView name,price ;
+        ImageView imgV;
+        public ViewHolder(@NonNull View itemView) {
+
+            super(itemView);
+            name = (TextView) itemView.findViewById(R.id.cardview_food_name);
+            price = (TextView) itemView.findViewById(R.id.cardview_food_price);
+            imgV = (ImageView) itemView.findViewById(R.id.cardview_food_Image);
+
+
         }
 
 
-        name = (TextView) convertView.findViewById(R.id.tvProductionName);
-        price =(TextView) convertView.findViewById(R.id.tvProductionPrice);
-        imgV =(ImageView) convertView.findViewById(R.id.imageView);
+    }
 
-        // for fill into grid view
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View convertView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.cardview_json_custom,parent,false);
+        return new ViewHolder(convertView);
+
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull JsonParsingAdapter.ViewHolder holder, int position)
+    {
         FoodItems foodItems = foodlist.get(position);
-        name.setText(foodItems.getName());
-        price.setText(foodItems.getPrice());
+        holder.name.setText(foodItems.getName());
+        holder.price.setText(foodItems.getPrice());
 
-        //Glide library  loading image view
-        // fill image into grid view by using glide library
-        try
-        {
+        try {
             URL glideimageurl = new URL(foodItems.getImageurl());
 
-            Glide.with(context).load(glideimageurl).into(imgV);
-
-            //
-
-            convertView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view)
-                {
-
-                }
-            });
+            Glide.with(context).load(glideimageurl).into(holder.imgV);
 
 
-        }catch (Exception e){e.printStackTrace();}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-
-        return convertView;
     }
+
+    @Override
+    public int getItemCount() {
+        return foodlist.size();
+    }
+
+
+
+
+    // ----------------------- end ---------------------------------------------
+
 }
