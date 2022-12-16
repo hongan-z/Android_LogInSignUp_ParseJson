@@ -16,21 +16,21 @@ public class MainActivity extends AppCompatActivity {
 
 
     EditText editTextUserName, editTextPassWord;
-    Button buttonLogin;
-    TextView textViewRegister;
+    TextView Login;
+    Button buttonRegister;
     UserDao db;
     UserDataBase dataBase;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.login);
+        editTextUserName = (EditText) findViewById(R.id.editTextTextPersonName7);
+        editTextPassWord =(EditText) findViewById(R.id.editTextTextPersonName8);
 
-        editTextUserName = (EditText) findViewById(R.id.editUserName);
-        editTextPassWord =(EditText) findViewById(R.id.editTextPassword);
-
-        buttonLogin=(Button) findViewById(R.id.buttonLogin);
-        textViewRegister =(TextView) findViewById(R.id.textViewRegister);
+        Login=(TextView) findViewById(R.id.textView14);
+        buttonRegister =(Button)findViewById(R.id.button);
 
         dataBase = Room.databaseBuilder(this,UserDataBase.class,"User")
                 .allowMainThreadQueries()
@@ -38,14 +38,15 @@ public class MainActivity extends AppCompatActivity {
 
         db = dataBase.getUserDao();
 
-        textViewRegister.setOnClickListener(new View.OnClickListener() {
+        Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this,RegisterActivity.class));
             }
         });
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        //Login
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username = editTextUserName.getText().toString().trim();

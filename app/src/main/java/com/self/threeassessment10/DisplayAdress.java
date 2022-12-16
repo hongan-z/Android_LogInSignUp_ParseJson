@@ -12,6 +12,7 @@ import android.widget.TextView;
 public class DisplayAdress extends AppCompatActivity {
     private Button addrReturn;
     private TextView tvUser , tvHome, tvWorkaddress;
+
     private User user;
 
     @SuppressLint("MissingInflatedId")
@@ -19,9 +20,9 @@ public class DisplayAdress extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_adress);
+        //setContentView(R.layout.newdisplayresult);
 
         user = (User) getIntent().getSerializableExtra("myUser");
-
 
         tvUser = findViewById(R.id.tvUser);
         tvHome = findViewById(R.id.tvHome);

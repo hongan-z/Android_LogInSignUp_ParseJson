@@ -8,6 +8,29 @@
     android:orientation="vertical"
     tools:context=".Screen3">
 
+   <ImageView
+       android:layout_width="40dp"
+       android:layout_height="40dp"
+       android:src="@drawable/ic_baseline_account_box_24"
+       android:layout_gravity="end"
+       >
+
+   </ImageView>
+
+
+    <TextView
+        android:id="@+id/helloname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        />
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttomboundary"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -40,7 +63,7 @@
 
             <RadioButton
                 android:id="@+id/dine3"
-                android:layout_width="85dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:checked="true"
@@ -52,7 +75,7 @@
 
             android:layout_width="83dp"
             android:layout_height="49dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:drawableLeft="@drawable/ic_baseline_train_24"
             android:text="Deliver on Train" />
 
@@ -62,7 +85,6 @@
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="67dp">
-
 
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/imaID"
@@ -87,6 +109,8 @@
         android:layout_width="match_parent"
         android:layout_height="320dp"
         android:numColumns="3" />
+
+
 
     <LinearLayout
         android:layout_width="match_parent"

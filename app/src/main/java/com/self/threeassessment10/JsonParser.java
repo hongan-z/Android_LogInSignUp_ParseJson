@@ -9,6 +9,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.GridView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.json.JSONArray;
 
 import java.io.BufferedInputStream;
@@ -178,12 +180,17 @@ public  class JsonParser extends AsyncTask <String,String,Void>
                 }
             }
 
+
+
+
+
             GridView gridView;
             gridView = (GridView) this.activity.findViewById(R.id.listviewfetchfooddetails);
 
-
             adapter = new JsonParsingAdapter(this.context ,fooddetails);
             gridView.setAdapter(adapter);
+
+
 
         }catch (Exception e)
         {

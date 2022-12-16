@@ -1,0 +1,10 @@
+<shape
+    android:alpha="0.69" android:height="320dp"
+    android:viewportHeight="320" android:viewportWidth="1440"
+
+    android:width="1440dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#5000ca" android:pathData="M0,192L0,288L1440,288L1440,0L0,0L0,0Z"/>
+<!--    <corners android:bottomLeftRadius="100dp" android:bottomRightRadius="100dp"/>-->
+    <solid android:color="@color/purple_500"/>
+
+</shape>
